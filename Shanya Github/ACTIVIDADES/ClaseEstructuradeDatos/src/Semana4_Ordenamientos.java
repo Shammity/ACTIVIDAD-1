@@ -1,32 +1,35 @@
 import java.util.Random;
+import java.util.Arrays;
 
 public class Semana4_Ordenamientos {
     public static void main(String[] args) {
 
         int[] nums = new int[100];
         Random rand = new Random();
-
-        for (int i = 0; i < nums.length; i++) {
+            for (int i = 0; i < nums.length; i++) {
             nums[i] = rand.nextInt(100) + 1;
-        }
+            }
 
         int[] copiaBurbuja = nums.clone();
         long tiempoInicioBurbuja = System.nanoTime();
         burbuja(copiaBurbuja);
         long tiempoFinBurbuja = System.nanoTime();
-        System.out.println("Tiempo Burbuja:" + (tiempoFinBurbuja - tiempoInicioBurbuja) + " ns");
+        System.out.println("Tiempo Burbuja: " + (tiempoFinBurbuja - tiempoInicioBurbuja) + " ns");
+        System.out.println("Burbuja ordenado: " + Arrays.toString(copiaBurbuja));
 
         int[] copiaSeleccion = nums.clone();
         long tiempoInicioSeleccion = System.nanoTime();
         seleccion(copiaSeleccion);
         long tiempoFinSeleccion = System.nanoTime();
-        System.out.println("Tiempo Selección:" + (tiempoFinSeleccion - tiempoInicioSeleccion) + " ns");
+        System.out.println("Tiempo Selección: " + (tiempoFinSeleccion - tiempoInicioSeleccion) + " ns");
+        System.out.println("Selección ordenado: " + Arrays.toString(copiaSeleccion));
 
         int[] copiaInsercion = nums.clone();
         long tiempoInicioInsercion = System.nanoTime();
         insercion(copiaInsercion);
         long tiempoFinInsercion = System.nanoTime();
-        System.out.println("Tiempo Inserción:" + (tiempoFinInsercion - tiempoInicioInsercion) + " ns");
+        System.out.println("Tiempo Inserción: " + (tiempoFinInsercion - tiempoInicioInsercion) + " ns");
+        System.out.println("Inserción ordenado: " + Arrays.toString(copiaInsercion));
     }
 
     public static void burbuja(int[] arr) {
@@ -40,7 +43,6 @@ public class Semana4_Ordenamientos {
             }
         }
     }
-
     public static void seleccion(int[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             int min = i;
@@ -54,7 +56,6 @@ public class Semana4_Ordenamientos {
             arr[i] = temp;
         }
     }
-
     public static void insercion(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
             int actual = arr[i];
